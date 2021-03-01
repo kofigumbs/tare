@@ -6,10 +6,6 @@
   else
     root.Tare = factory();
 }(typeof self !== 'undefined' ? self : this, function () {
-  const columns = (...ss) => (
-    ss.map(s => `<div style="display:flex;flex-direction:column;flex:1;" aria-hidden="true">${s.join('')}</div>`).join('')
-  );
-
   const s = (ratio, styles, layout = 'position:absolute;top:0;left:0;width:100%;height:100%;') => `
     <div style="position:relative;${ratio}">
       <div style="box-sizing:border-box;${layout}${styles}"></div>
@@ -32,329 +28,336 @@
   const fullHeight = 'height:100%;';
   const halfHeight = 'height:50%;';
 
-  const symbols = new Map([
-    ['A', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, top + left),
-        s(fill, left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, top + right),
-        s(fill, right),
-      ],
-    )],
-    ['B', columns(
-      [
-        s(fill, top + left),
-        s(fill, bottom + left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['C', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, none),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['D', columns(
-      [
-        s(square, top + left),
-        s(fill, bottom + left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['E', columns(
-      [
-        s(fill, top + left),
-        s(fill, top + left),
-        s(fill, bottom + left),
-      ],
-      [
-        s(fill, top),
-        s(fill, none),
-        s(fill, bottom),
-      ],
-    )],
-    ['F', columns(
-      [
-        s(fill, top + left),
-        s(fill, top + left),
-        s(fill, left),
-      ],
-      [
-        s(fill, top),
-        s(fill, none),
-      ],
-    )],
-    ['G', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, bottom),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['H', columns(
-      [
-        s(fill, bottom + left),
-        s(fill, left),
-      ],
-      [
-        s(fill, bottom + right),
-        s(fill, right),
-      ],
-    )],
-    ['I', columns(
-      [
-        s(none, top),
-        centerStem(fullHeight),
-        s(none, top + alignBottom),
-      ],
-    )],
-    ['J', columns(
-      [
-        s(fill, none),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['K', columns(
-      [
-        s(fill, bottom + left),
-        s(fill, left),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-      ],
-    )],
-    ['L', columns(
-      [
-        s(fill, bottom + left),
-      ],
-      [
-        s(fill, bottom),
-      ],
-    )],
-    ['M', columns(
-      [
-        s(square, top + left),
-        s(fill, left),
-      ],
-      [
-        s(none, top),
-        centerStem(halfHeight),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-      ],
-    )],
-    ['N', columns(
-      [
-        s(square, top + left),
-        s(fill, left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-      ],
-    )],
-    ['O', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['P', columns(
-      [
-        s(square, top + left),
-        s(fill, left),
-        s(square, bottom + left),
-        s(fill, left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-        s(fill, none),
-      ],
-    )],
-    ['Q', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(fill, top + bottom + left + right),
-      ],
-    )],
-    ['R', columns(
-      [
-        s(fill, top + left),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, right),
-      ],
-    )],
-    ['S', columns(
-      [
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-        s(square, top),
-        s(fill, none),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(square, top + right + topRightRadius),
-        s(fill, none),
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['T', columns(
-      [
-        s(fill, top),
-      ],
-      [
-        s(none, top),
-        centerStem(fullHeight),
-      ],
-      [
-        s(fill, top),
-      ],
-    )],
-    ['U', columns(
-      [
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['V', columns(
-      [
-        s(fill, left),
-        s(square, bottom + left),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['W', columns(
-      [
-        s(fill, left),
-        s(square, bottom + left),
-      ],
-      [
-        centerStem(fullHeight),
-        s(none, top + alignBottom),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-      ],
-    )],
-    ['X', columns(
-      [
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-        s(square, top + left + topLeftRadius),
-        s(fill, left),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right + bottomRightRadius),
-        s(square, top + right + topRightRadius),
-        s(fill, right),
-      ],
-    )],
-    ['Y', columns(
-      [
-        s(fill, left),
-        s(square, bottom + left + bottomLeftRadius),
-        s(fill, none),
-      ],
-      [
-        s(fill, right),
-        s(square, bottom + right),
-        s(fill, right + bottom),
-      ],
-    )],
-    ['Z', columns(
-      [
-        s(fill, top),
-        s(square, top + left + topLeftRadius),
-        s(fill, bottom + left),
-      ],
-      [
-        s(fill, top + right),
-        s(square, bottom + right + bottomRightRadius),
-        s(fill, bottom),
-      ],
-    )],
-    [' ', columns(
-      [
-        s(fill, none),
-      ],
-    )],
+  const definitions = new Map();
+  const defineCharacter = (character, columns) => {
+    definitions.set(character, `
+      <div style="display:flex;flex-direction:row;flex:${columns.length};" data-tare-character="${character}">
+        ${columns.map(s => `<div style="display:flex;flex-direction:column;flex:1;">${s.join('')}</div>`).join('')}
+      </div>
+    `);
+  };
+
+  defineCharacter('A', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, top + left),
+      s(fill, left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, top + right),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('B', [
+    [
+      s(fill, top + left),
+      s(fill, bottom + left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('C', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, none),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('D', [
+    [
+      s(square, top + left),
+      s(fill, bottom + left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('E', [
+    [
+      s(fill, top + left),
+      s(fill, top + left),
+      s(fill, bottom + left),
+    ],
+    [
+      s(fill, top),
+      s(fill, none),
+      s(fill, bottom),
+    ]
+  ]);
+  defineCharacter('F', [
+    [
+      s(fill, top + left),
+      s(fill, top + left),
+      s(fill, left),
+    ],
+    [
+      s(fill, top),
+      s(fill, none),
+    ]
+  ]);
+  defineCharacter('G', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, bottom),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('H', [
+    [
+      s(fill, bottom + left),
+      s(fill, left),
+    ],
+    [
+      s(fill, bottom + right),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('I', [
+    [
+      s(none, top),
+      centerStem(fullHeight),
+      s(none, top + alignBottom),
+    ]
+  ]);
+  defineCharacter('J', [
+    [
+      s(fill, none),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('K', [
+    [
+      s(fill, bottom + left),
+      s(fill, left),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('L', [
+    [
+      s(fill, bottom + left),
+    ],
+    [
+      s(fill, bottom),
+    ]
+  ]);
+  defineCharacter('M', [
+    [
+      s(square, top + left),
+      s(fill, left),
+    ],
+    [
+      s(none, top),
+      centerStem(halfHeight),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('N', [
+    [
+      s(square, top + left),
+      s(fill, left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('O', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('P', [
+    [
+      s(square, top + left),
+      s(fill, left),
+      s(square, bottom + left),
+      s(fill, left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+      s(fill, none),
+    ]
+  ]);
+  defineCharacter('Q', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(fill, top + bottom + left + right),
+    ]
+  ]);
+  defineCharacter('R', [
+    [
+      s(fill, top + left),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, right),
+    ]
+  ]);
+  defineCharacter('S', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, top),
+      s(fill, none),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, none),
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('T', [
+    [
+      s(fill, top),
+    ],
+    [
+      s(none, top),
+      centerStem(fullHeight),
+    ],
+    [
+      s(fill, top),
+    ]
+  ]);
+  defineCharacter('U', [
+    [
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('V', [
+    [
+      s(fill, left),
+      s(square, bottom + left),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('W', [
+    [
+      s(fill, left),
+      s(square, bottom + left),
+    ],
+    [
+      centerStem(fullHeight),
+      s(none, top + alignBottom),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ]
+  ]);
+  defineCharacter('X', [
+    [
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+    ]
+  ]);
+  defineCharacter('Y', [
+    [
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+      s(fill, none),
+    ],
+    [
+      s(fill, right),
+      s(square, bottom + right),
+      s(fill, right + bottom),
+    ]
+  ]);
+  defineCharacter('Z', [
+    [
+      s(fill, top),
+      s(square, top + left + topLeftRadius),
+      s(fill, bottom + left),
+    ],
+    [
+      s(fill, top + right),
+      s(square, bottom + right + bottomRightRadius),
+      s(fill, bottom),
+    ]
+  ]);
+  defineCharacter(' ', [
+    [
+      s(fill, none),
+    ]
   ]);
 
   return {
     html(text) {
       return `
         <div style="display:flex;flex-direction:row;" aria-label="${text.replace('"', '&quot;')}" data-tare>
-          ${Array.from(text.toUpperCase()).map(symbol => symbols.get(symbol)).filter(x => x).join('<div aria-hidden="true" data-tare-separator></div>')}
+          ${Array.from(text.toUpperCase()).map(character => definitions.get(character)).filter(x => x).join('')}
         </div>
       `;
     }

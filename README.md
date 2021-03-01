@@ -8,27 +8,22 @@ Made for brutalist visualizations.
 ```html
 <!DOCTYPE html>
 <style>
-  html, body {
-    height: 100%;
-    overflow: hidden;
-  }
   [data-tare] {
-    height: 50%;
-    border: solid 40px white;
-    box-sizing: border-box;
+    height: 40vh;
+    margin: 5vh 5vw;
   }
-  [data-tare] * {
+  [data-tare-character] * {
     border-width: 10px;
   }
-  [data-tare-separator] {
-    width: 20px;
-    height: 100%;
+  [data-tare-character] + [data-tare-character] {
+    margin-left: 20px;
   }
 </style>
 <body>
   <script src="./dist/tare.min.js"></script>
-  <script>document.body.innerHTML = Tare.html("abcdefghijklmn") + Tare.html("opqrstuvwxyz");</script>
+  <script>
+    document.body.innerHTML += Tare.html("abcdefghijklmn");
+    document.body.innerHTML += Tare.html("opqrstuvwxyz");
+  </script>
 </body>
 ```
-
-Tare supports letters (always converted to uppercase) and the space character.
