@@ -3,6 +3,7 @@
 <u>Ta</u>ll, <u>re</u>sponsive psudo-font, built with flexbox and borders.
 Built for brutalist visualizations.
 
+<img src="/demo.gif" alt="Demo GIF">
 
 ```html
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ Built for brutalist visualizations.
   }
 </style>
 <body>
-  <script src="./index.js"></script>
+  <script src="./dist/tare.min.js"></script>
   <script>document.body.innerHTML = Tare.html("abcdefghijklmn") + Tare.html("opqrstuvwxyz");</script>
 </body>
 ```
