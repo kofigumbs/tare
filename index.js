@@ -11,7 +11,7 @@
       <div style="box-sizing:border-box;${layout}${styles}"></div>
     </div>
   `;
-  const fill = 'flex:1;';
+  const expand = 'flex:1;';
   const square = 'height:0;padding-bottom:100%;overflow:hidden;max-width:100%;';
   const none = '';
   const top = 'border-top-style:solid;';
@@ -40,98 +40,98 @@
   defineCharacter('A', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, top + left),
-      s(fill, left),
+      s(expand, left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, top + right),
-      s(fill, right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('B', [
     [
-      s(fill, top + left),
-      s(fill, bottom + left),
+      s(expand, top + left),
+      s(expand, bottom + left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('C', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, none),
+      s(expand, none),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('D', [
     [
       s(square, top + left),
-      s(fill, bottom + left),
+      s(expand, bottom + left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('E', [
     [
-      s(fill, top + left),
-      s(fill, top + left),
-      s(fill, bottom + left),
+      s(expand, top + left),
+      s(expand, top + left),
+      s(expand, bottom + left),
     ],
     [
-      s(fill, top),
-      s(fill, none),
-      s(fill, bottom),
+      s(expand, top),
+      s(expand, none),
+      s(expand, bottom),
     ],
   ]);
   defineCharacter('F', [
     [
-      s(fill, top + left),
-      s(fill, top + left),
-      s(fill, left),
+      s(expand, top + left),
+      s(expand, top + left),
+      s(expand, left),
     ],
     [
-      s(fill, top),
-      s(fill, none),
+      s(expand, top),
+      s(expand, none),
     ],
   ]);
   defineCharacter('G', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, bottom),
-      s(fill, right),
+      s(expand, bottom),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('H', [
     [
-      s(fill, bottom + left),
-      s(fill, left),
+      s(expand, bottom + left),
+      s(expand, left),
     ],
     [
-      s(fill, bottom + right),
-      s(fill, right),
+      s(expand, bottom + right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('I', [
@@ -143,39 +143,39 @@
   ]);
   defineCharacter('J', [
     [
-      s(fill, none),
+      s(expand, none),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('K', [
     [
-      s(fill, bottom + left),
-      s(fill, left),
+      s(expand, bottom + left),
+      s(expand, left),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('L', [
     [
-      s(fill, bottom + left),
+      s(expand, bottom + left),
     ],
     [
-      s(fill, bottom),
+      s(expand, bottom),
     ],
   ]);
   defineCharacter('M', [
     [
       s(square, top + left),
-      s(fill, left),
+      s(expand, left),
     ],
     [
       s(none, top),
@@ -183,121 +183,121 @@
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('N', [
     [
       s(square, top + left),
-      s(fill, left),
+      s(expand, left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('O', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('P', [
     [
       s(square, top + left),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left),
-      s(fill, left),
+      s(expand, left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
-      s(fill, none),
+      s(expand, none),
     ],
   ]);
   defineCharacter('Q', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
-      s(fill, top + bottom + left + right),
+      s(expand, right),
+      s(expand, top + bottom + left + right),
     ],
   ]);
   defineCharacter('R', [
     [
-      s(fill, top + left),
+      s(expand, top + left),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, right),
     ],
   ]);
   defineCharacter('S', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, top),
-      s(fill, none),
+      s(expand, none),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
       s(square, top + right + topRightRadius),
-      s(fill, none),
+      s(expand, none),
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('T', [
     [
-      s(fill, top),
+      s(expand, top),
     ],
     [
       s(none, top),
       centerStem(fullHeight),
     ],
     [
-      s(fill, top),
+      s(expand, top),
     ],
   ]);
   defineCharacter('U', [
     [
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('V', [
     [
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('W', [
     [
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left),
     ],
     [
@@ -305,85 +305,85 @@
       s(none, top + alignBottom),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('X', [
     [
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
     ],
   ]);
   defineCharacter('Y', [
     [
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
-      s(fill, none),
+      s(expand, none),
     ],
     [
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right),
-      s(fill, right + bottom),
+      s(expand, right + bottom),
     ],
   ]);
   defineCharacter('Z', [
     [
-      s(fill, top),
+      s(expand, top),
       s(square, top + left + topLeftRadius),
-      s(fill, bottom + left),
+      s(expand, bottom + left),
     ],
     [
-      s(fill, top + right),
+      s(expand, top + right),
       s(square, bottom + right + bottomRightRadius),
-      s(fill, bottom),
+      s(expand, bottom),
     ],
   ]);
   defineCharacter(' ', [
     [
-      s(fill, none),
+      s(expand, none),
     ],
   ]);
   defineCharacter('.', [
     [
-      s(fill, none),
+      s(expand, none),
       s(square, top + bottom + left + right + topLeftRadius + topRightRadius + bottomLeftRadius + bottomRightRadius),
     ],
   ]);
   defineCharacter('(', [
     [
       s(square, top + left + topLeftRadius),
-      s(fill, left),
+      s(expand, left),
       s(square, bottom + left + bottomLeftRadius),
     ],
   ]);
   defineCharacter(')', [
     [
       s(square, top + right + topRightRadius),
-      s(fill, right),
+      s(expand, right),
       s(square, bottom + right + bottomRightRadius),
     ],
   ]);
   defineCharacter('-', [
     [
-      s(fill, bottom),
-      s(fill, none),
+      s(expand, bottom),
+      s(expand, none),
     ],
   ]);
   defineCharacter('_', [
     [
-      s(fill, bottom),
+      s(expand, bottom),
     ],
     [
-      s(fill, bottom),
+      s(expand, bottom),
     ],
   ]);
 
