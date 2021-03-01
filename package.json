@@ -1,0 +1,22 @@
+{
+  "name": "tare",
+  "version": "1.0.0",
+  "description": "Tall, responsive pseudo-font",
+  "main": "index.js",
+  "scripts": {
+    "build": "uglifyjs index.js -o dist/tare.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kofigumbs/tare.git"
+  },
+  "author": "Kofi Gumbs",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/kofigumbs/tare/issues"
+  },
+  "homepage": "https://github.com/kofigumbs/tare#readme",
+  "devDependencies": {
+    "uglify-js": "^3.12.8"
+  }
+}
