@@ -386,6 +386,12 @@
       s(expand, bottom),
     ],
   ]);
+  defineCharacter(',', [
+    [
+      s(expand, none),
+      s(square, bottom + right + bottomRightRadius),
+    ],
+  ]);
 
   return {
     html(text) {
