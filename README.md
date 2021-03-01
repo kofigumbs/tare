@@ -1,7 +1,7 @@
 # Tare
 
 <b>Ta</b>ll, <b>re</b>sponsive psudo-font, built with flexbox and borders.
-Built for brutalist visualizations.
+Made for brutalist visualizations.
 
 <img src="/demo.gif" alt="Demo GIF">
 
