@@ -49,7 +49,7 @@
       s(fill, right),
       s(square, top + right),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('B', [
     [
@@ -63,7 +63,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('C', [
     [
@@ -75,7 +75,7 @@
       s(square, top + right + topRightRadius),
       s(fill, none),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('D', [
     [
@@ -86,7 +86,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('E', [
     [
@@ -98,7 +98,7 @@
       s(fill, top),
       s(fill, none),
       s(fill, bottom),
-    ]
+    ],
   ]);
   defineCharacter('F', [
     [
@@ -109,7 +109,7 @@
     [
       s(fill, top),
       s(fill, none),
-    ]
+    ],
   ]);
   defineCharacter('G', [
     [
@@ -122,7 +122,7 @@
       s(fill, bottom),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('H', [
     [
@@ -132,14 +132,14 @@
     [
       s(fill, bottom + right),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('I', [
     [
       s(none, top),
       centerStem(fullHeight),
       s(none, top + alignBottom),
-    ]
+    ],
   ]);
   defineCharacter('J', [
     [
@@ -150,7 +150,7 @@
       s(square, top + right),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('K', [
     [
@@ -162,7 +162,7 @@
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('L', [
     [
@@ -170,7 +170,7 @@
     ],
     [
       s(fill, bottom),
-    ]
+    ],
   ]);
   defineCharacter('M', [
     [
@@ -184,7 +184,7 @@
     [
       s(square, top + right + topRightRadius),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('N', [
     [
@@ -194,7 +194,7 @@
     [
       s(square, top + right + topRightRadius),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('O', [
     [
@@ -206,7 +206,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('P', [
     [
@@ -220,7 +220,7 @@
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
       s(fill, none),
-    ]
+    ],
   ]);
   defineCharacter('Q', [
     [
@@ -232,7 +232,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(fill, top + bottom + left + right),
-    ]
+    ],
   ]);
   defineCharacter('R', [
     [
@@ -245,7 +245,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(square, right),
-    ]
+    ],
   ]);
   defineCharacter('S', [
     [
@@ -261,7 +261,7 @@
       s(square, top + right + topRightRadius),
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('T', [
     [
@@ -273,7 +273,7 @@
     ],
     [
       s(fill, top),
-    ]
+    ],
   ]);
   defineCharacter('U', [
     [
@@ -283,7 +283,7 @@
     [
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('V', [
     [
@@ -293,7 +293,7 @@
     [
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('W', [
     [
@@ -307,7 +307,7 @@
     [
       s(fill, right),
       s(square, bottom + right + bottomRightRadius),
-    ]
+    ],
   ]);
   defineCharacter('X', [
     [
@@ -321,7 +321,7 @@
       s(square, bottom + right + bottomRightRadius),
       s(square, top + right + topRightRadius),
       s(fill, right),
-    ]
+    ],
   ]);
   defineCharacter('Y', [
     [
@@ -333,7 +333,7 @@
       s(fill, right),
       s(square, bottom + right),
       s(fill, right + bottom),
-    ]
+    ],
   ]);
   defineCharacter('Z', [
     [
@@ -345,12 +345,46 @@
       s(fill, top + right),
       s(square, bottom + right + bottomRightRadius),
       s(fill, bottom),
-    ]
+    ],
   ]);
   defineCharacter(' ', [
     [
       s(fill, none),
-    ]
+    ],
+  ]);
+  defineCharacter('.', [
+    [
+      s(fill, none),
+      s(square, top + bottom + left + right + topLeftRadius + topRightRadius + bottomLeftRadius + bottomRightRadius),
+    ],
+  ]);
+  defineCharacter('(', [
+    [
+      s(square, top + left + topLeftRadius),
+      s(fill, left),
+      s(square, bottom + left + bottomLeftRadius),
+    ],
+  ]);
+  defineCharacter(')', [
+    [
+      s(square, top + right + topRightRadius),
+      s(fill, right),
+      s(square, bottom + right + bottomRightRadius),
+    ],
+  ]);
+  defineCharacter('-', [
+    [
+      s(fill, bottom),
+      s(fill, none),
+    ],
+  ]);
+  defineCharacter('_', [
+    [
+      s(fill, bottom),
+    ],
+    [
+      s(fill, bottom),
+    ],
   ]);
 
   return {

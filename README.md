@@ -9,7 +9,7 @@ Made for brutalist visualizations.
 <!DOCTYPE html>
 <style>
   [data-tare] {
-    height: 40vh;
+    height: 42vh;
     margin: 5vh 5vw;
   }
   [data-tare-character] * {
