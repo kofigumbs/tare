@@ -3,6 +3,8 @@
     define([], factory);
   else if (typeof module === 'object' && module.exports)
     module.exports = factory();
+  else if(typeof exports === 'object')
+    exports['Tare'] = factory();
   else
     root.Tare = factory();
 }(typeof self !== 'undefined' ? self : this, function () {
