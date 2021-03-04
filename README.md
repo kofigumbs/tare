@@ -1,6 +1,6 @@
 # Tare
 
-<b>Ta</b>ll, <b>re</b>sponsive psudo-font, built with flexbox and borders.
+<b>Ta</b>ll, <b>re</b>sponsive pseudo-font, built with flexbox and borders.
 Made for brutalist visualizations.
 
 <img src="/demo.gif" alt="Demo GIF">
