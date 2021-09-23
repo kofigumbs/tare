@@ -2,7 +2,7 @@
   "name": "tare",
   "version": "1.0.0",
   "description": "Tall, responsive pseudo-font",
-  "main": "index.js",
+  "main": "dist/tare.min.js",
   "scripts": {
     "build": "uglifyjs index.js -o dist/tare.min.js"
   },
