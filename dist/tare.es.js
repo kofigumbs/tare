@@ -1262,7 +1262,7 @@ const characters = new Map();
 for (let [character2, columns] of Object.entries(C$1)) {
   characters.set(character2, concat(T$1.character[0], columns.length, T$1.character[1], character2, T$1.character[2], columns.map((commands) => concat(T$1.character[3], draw(commands).join(""), T$1.character[4])).join(""), T$1.character[5]));
 }
-var index = {
+var tare = {
   html: (text) => concat(T$1.html[0], text.replace('"', "&quot;"), T$1.html[1], Array.from(text.toUpperCase()).map((character2) => characters.get(character2)).filter((x) => x).join(""), T$1.html[2])
 };
-export { index as default };
+export { tare as default };
