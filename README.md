@@ -20,8 +20,8 @@ Made for brutalist visualizations.
   }
 </style>
 <body>
-  <script src="./dist/tare.min.js"></script>
-  <script>
+  <script type="module">
+    import Tare from "./dist/tare.es.js";
     document.body.innerHTML += Tare.html("abcdefghijklmn");
     document.body.innerHTML += Tare.html("opqrstuvwxyz");
   </script>
