@@ -2,7 +2,8 @@
   "name": "tare",
   "version": "1.0.0",
   "description": "Tall, responsive pseudo-font",
-  "main": "dist/tare.min.js",
+  "main": "dist/tare.umd.js",
+  "module": "dist/tare.es.js",
   "scripts": {
     "build": "vite"
   },
