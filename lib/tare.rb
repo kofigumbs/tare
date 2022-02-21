@@ -7,12 +7,16 @@ module Tare
   class << self
     private
 
-    def s ratio, styles, layout = T['defaultLayout']
-      [T['s'][0], ratio, T['s'][1], layout, styles, T['s'][2]].join
+    def render template, args
+      template.gsub('{}') { args.shift }
+    end
+
+    def s outer, inner
+      render T['s'], [outer, T['defaultLayout'] + inner]
     end
 
     def v height
-      s T['v'][0], T['right'], [T['v'][1], height].join
+      render T['s'], [T['vOuter'], T['vInner'] + T['right'] + height]
     end
 
     def draw commands
@@ -30,27 +34,20 @@ module Tare
       @characters ||= C.map do |character, columns|
         [
           character,
-          [
-            T['character'][0],
+          render(T['character'], [
             columns.count,
-            T['character'][1],
             character,
-            T['character'][2],
-            columns.map{ |commands| [T['character'][3], draw(commands).join, T['character'][4]].join }.join,
-            T['character'][5]
-          ].join
+            columns.map{ |commands| render T['column'], [draw(commands).join] }.join,
+          ]),
         ]
       end.to_h
     end
   end
 
   def self.html text
-    [
-      T['html'][0],
+    render T['html'], [
       text.gsub('"', '&quot;'),
-      T['html'][1],
       text.upcase.chars.map{ |character| characters[character] }.compact.join,
-      T['html'][2]
-    ].join
+    ]
   end
 end

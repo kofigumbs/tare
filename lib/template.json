@@ -1,29 +1,16 @@
 {
+  "html": "<div style=\"display:flex;flex-direction:row;\" aria-label=\"{}\" data-tare>{}</div>",
+  "character": "<div style=\"display:flex;flex-direction:row;flex:{};\" data-tare-character=\"{}\">{}</div>",
+  "column": "<div style=\"display:flex;flex-direction:column;flex:1;\">{}</div>",
+  "s": "<div style=\"position:relative;{}\"><div style=\"box-sizing:border-box;{}\"></div></div>",
+  "none": "",
+  "vOuter": "flex:1;text-align:center;",
+  "vInner": "display:inline-block;",
   "defaultLayout": "position:absolute;top:0;left:0;width:100%;height:100%;",
-  "s": ["<div style=\"position:relative;", "\"><div style=\"box-sizing:border-box;", "\"></div></div>"],
-
   "fullHeight": "height:100%;",
   "halfHeight": "height:50%;",
-  "v": ["flex:1;text-align:center;", "display:inline-block;"],
-
-  "character":  [
-    "<div style=\"display:flex;flex-direction:row;flex:",
-    ";\" data-tare-character=\"",
-    "\">",
-    "<div style=\"display:flex;flex-direction:column;flex:1;\">",
-    "</div>",
-    "</div>"
-  ],
-
-  "html": [
-    "<div style=\"display:flex;flex-direction:row;\" aria-label=\"",
-    "\" data-tare>",
-    "</div>"
-  ],
-
   "expand": "flex:1;",
   "square": "height:0;padding-bottom:100%;overflow:hidden;max-width:100%;",
-  "none": "",
   "top": "border-top-style:solid;",
   "left": "border-left-style:solid;",
   "right": "border-right-style:solid;",

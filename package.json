@@ -5,7 +5,7 @@
   "main": "dist/tare.umd.js",
   "module": "dist/tare.es.js",
   "scripts": {
-    "build": "vite"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",

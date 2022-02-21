@@ -1,31 +1,15 @@
+const html = '<div style="display:flex;flex-direction:row;" aria-label="{}" data-tare>{}</div>';
+const character = '<div style="display:flex;flex-direction:row;flex:{};" data-tare-character="{}">{}</div>';
+const column = '<div style="display:flex;flex-direction:column;flex:1;">{}</div>';
+const s$1 = '<div style="position:relative;{}"><div style="box-sizing:border-box;{}"></div></div>';
+const none = "";
+const vOuter = "flex:1;text-align:center;";
+const vInner = "display:inline-block;";
 const defaultLayout = "position:absolute;top:0;left:0;width:100%;height:100%;";
-const s$1 = [
-  '<div style="position:relative;',
-  '"><div style="box-sizing:border-box;',
-  '"></div></div>'
-];
 const fullHeight = "height:100%;";
 const halfHeight = "height:50%;";
-const v$1 = [
-  "flex:1;text-align:center;",
-  "display:inline-block;"
-];
-const character = [
-  '<div style="display:flex;flex-direction:row;flex:',
-  ';" data-tare-character="',
-  '">',
-  '<div style="display:flex;flex-direction:column;flex:1;">',
-  "</div>",
-  "</div>"
-];
-const html = [
-  '<div style="display:flex;flex-direction:row;" aria-label="',
-  '" data-tare>',
-  "</div>"
-];
 const expand = "flex:1;";
 const square = "height:0;padding-bottom:100%;overflow:hidden;max-width:100%;";
-const none = "";
 const top = "border-top-style:solid;";
 const left = "border-left-style:solid;";
 const right = "border-right-style:solid;";
@@ -36,16 +20,18 @@ const bottomLeftRadius = "border-bottom-left-radius:100%;";
 const bottomRightRadius = "border-bottom-right-radius:100%;";
 const alignBottom = "top:unset;bottom:0;";
 var T$1 = {
-  defaultLayout,
+  html,
+  character,
+  column,
   s: s$1,
+  none,
+  vOuter,
+  vInner,
+  defaultLayout,
   fullHeight,
   halfHeight,
-  v: v$1,
-  character,
-  html,
   expand,
   square,
-  none,
   top,
   left,
   right,
@@ -1245,9 +1231,9 @@ var C$1 = {
     ]
   ]
 };
-const concat = (...parts) => parts.join("");
-const s = (ratio, styles, layout = T$1.defaultLayout) => concat(T$1.s[0], ratio, T$1.s[1], layout, styles, T$1.s[2]);
-const v = (height) => s(T$1.v[0], T$1.right, concat(T$1.v[1], height));
+const render = (template, args) => template.replaceAll("{}", () => args.shift());
+const s = (outer, inner) => render(T$1.s, [outer, T$1.defaultLayout + inner]);
+const v = (height) => render(T$1.s, [T$1.vOuter, T$1.vInner + T$1.right + height]);
 const draw = (commands) => commands.map(([command, ...options]) => {
   switch (command) {
     case "s":
@@ -1260,9 +1246,16 @@ const draw = (commands) => commands.map(([command, ...options]) => {
 });
 const characters = new Map();
 for (let [character2, columns] of Object.entries(C$1)) {
-  characters.set(character2, concat(T$1.character[0], columns.length, T$1.character[1], character2, T$1.character[2], columns.map((commands) => concat(T$1.character[3], draw(commands).join(""), T$1.character[4])).join(""), T$1.character[5]));
+  characters.set(character2, render(T$1.character, [
+    columns.length,
+    character2,
+    columns.map((commands) => render(T$1.column, [draw(commands).join("")])).join("")
+  ]));
 }
 var tare = {
-  html: (text) => concat(T$1.html[0], text.replace('"', "&quot;"), T$1.html[1], Array.from(text.toUpperCase()).map((character2) => characters.get(character2)).filter((x) => x).join(""), T$1.html[2])
+  html: (text) => render(T$1.html, [
+    text.replaceAll('"', "&quot;"),
+    Array.from(text.toUpperCase()).map((character2) => characters.get(character2)).filter((x) => x).join("")
+  ])
 };
 export { tare as default };
